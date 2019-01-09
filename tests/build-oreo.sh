@@ -25,10 +25,10 @@ if [ "$1" = "docker" ]; then
     lunch aosp_arm64-eng
     make -j $cpus
 else
-    aosp_url="https://raw.githubusercontent.com/ALGPHELLO/docker-aosp/master/utils/aosp"
+    aosp_url="https://raw.githubusercontent.com/algphello/docker-aosp/master/utils/aosp"
     args="bash run.sh docker"
     export AOSP_EXTRA_ARGS="-v $(cd $(dirname $0) && pwd -P)/$(basename $0):/usr/local/bin/run.sh:ro"
-    export AOSP_IMAGE="ALGPHELLO/aosp:8.0-oreo"
+    export AOSP_IMAGE="algphello/aosp:8.0-oreo"
 
     #
     # Try to invoke the aosp wrapper with the following priority:

@@ -1,9 +1,9 @@
 #
 # Minimum Docker image to build Android AOSP
 #
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
-MAINTAINER Khaled Necir <khaledannab@gmail.com>
+MAINTAINER algphello <khaledannab@gmail.com>
 
 # /bin/sh points to Dash by default, reconfigure to use bash until Android
 # build becomes POSIX compliant

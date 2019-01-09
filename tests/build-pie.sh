@@ -4,12 +4,12 @@
 #
 # Example invocation:
 #
-# $ AOSP_VOL=$PWD/build ./build-marshmallow.sh
+# $ AOSP_VOL=$PWD/build ./build-pie.sh
 #
 set -ex
 
 if [ "$1" = "docker" ]; then
-    TEST_BRANCH=${TEST_BRANCH:-android-6.0.1_r80}
+    TEST_BRANCH=${TEST_BRANCH:-android-9.0.0_r30}
     TEST_URL=${TEST_URL:-https://android.googlesource.com/platform/manifest}
 
     cpus=$(grep ^processor /proc/cpuinfo | wc -l)
@@ -19,16 +19,16 @@ if [ "$1" = "docker" ]; then
     # Use default sync '-j' value embedded in manifest file to be polite
     repo sync
 
-    prebuilts/misc/linux-x86/ccache/ccache -M 10G
+    prebuilts/misc/linux-x86/ccache/ccache -M 40G
 
     source build/envsetup.sh
-    lunch aosp_arm-eng
+    lunch aosp_arm64-eng
     make -j $cpus
 else
     aosp_url="https://raw.githubusercontent.com/algphello/docker-aosp/master/utils/aosp"
     args="bash run.sh docker"
     export AOSP_EXTRA_ARGS="-v $(cd $(dirname $0) && pwd -P)/$(basename $0):/usr/local/bin/run.sh:ro"
-    export AOSP_IMAGE="algphello/aosp:6.0-marshmallow"
+    export AOSP_IMAGE="algphello/aosp:9.0-pie"
 
     #
     # Try to invoke the aosp wrapper with the following priority:
