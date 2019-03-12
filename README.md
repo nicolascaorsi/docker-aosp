@@ -1,9 +1,9 @@
 Android Open Source Project Docker Build Environment
 ====================================================
 
-[![Docker Stars](https://img.shields.io/docker/stars/algphello/aosp.svg)](https://hub.docker.com/r/algphello/aosp/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/algphello/aosp.svg)](https://hub.docker.com/r/algphello/aosp/)
-[![ImageLayers](https://images.microbadger.com/badges/image/algphello/aosp.svg)](https://microbadger.com/#/images/algphello/aosp)
+[![Docker Stars](https://img.shields.io/docker/stars/nicolascaorsi/aosp.svg)](https://hub.docker.com/r/nicolascaorsi/aosp/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nicolascaorsi/aosp.svg)](https://hub.docker.com/r/nicolascaorsi/aosp/)
+[![ImageLayers](https://images.microbadger.com/badges/image/nicolascaorsi/aosp.svg)](https://microbadger.com/#/images/nicolascaorsi/aosp)
 
 Minimal build environment for AOSP with handy automation wrapper scripts.
 
@@ -46,7 +46,7 @@ For the terribly impatient.
 
             mkdir nougat ; cd nougat
             export AOSP_VOL=$PWD
-            curl -O https://raw.githubusercontent.com/algphello/docker-aosp/master/tests/build-nougat.sh
+            curl -O https://raw.githubusercontent.com/nicolascaorsi/docker-aosp/master/tests/build-nougat.sh
             bash ./build-nougat.sh
 
     This takes about 2 hours to download and build on i5-2500k with 100Mb/s network connection.
@@ -82,7 +82,7 @@ version: "2"
 
 services:
   aosp:
-    image: algphello/aosp:latest
+    image: nicolascaorsi/aosp:latest
     volumes:
       - /tmp/ccache:/ccache
       - ~/aosp:/aosp

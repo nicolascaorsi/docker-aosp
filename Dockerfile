@@ -3,8 +3,6 @@
 #
 FROM ubuntu:16.04
 
-MAINTAINER algphello <khaledannab@gmail.com>
-
 # /bin/sh points to Dash by default, reconfigure to use bash until Android
 # build becomes POSIX compliant
 RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
@@ -13,11 +11,11 @@ RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
 # Keep the dependency list as short as reasonable
 RUN apt-get update && \
     apt-get install -y bc bison bsdmainutils build-essential curl \
-        flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev \
-        lib32z1-dev libesd0-dev libncurses5-dev \
-        libsdl1.2-dev libwxgtk3.0-dev libxml2-utils lzop sudo \
-        openjdk-8-jdk \
-        pngcrush schedtool xsltproc zip zlib1g-dev graphviz && \
+    flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev \
+    lib32z1-dev libesd0-dev libncurses5-dev \
+    libsdl1.2-dev libwxgtk3.0-dev libxml2-utils lzop sudo \
+    openjdk-8-jdk \
+    pngcrush schedtool xsltproc zip zlib1g-dev graphviz && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD https://commondatastorage.googleapis.com/git-repo-downloads/repo /usr/local/bin/
